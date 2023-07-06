@@ -24,9 +24,9 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your Last name ");
-        String firstName = sc.nextLine();
+        String lastName = sc.nextLine();
 
-        Matcher matcher =pattern.matcher(firstName);
+        Matcher matcher =pattern.matcher(lastName);
         if(matcher.matches()){
             System.out.println("Last name is valid.");
         }else{
@@ -38,13 +38,27 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your Key name ");
-        String firstName = sc.nextLine();
+        String keyName = sc.nextLine();
 
-        Matcher matcher =pattern.matcher(firstName);
+        Matcher matcher =pattern.matcher(keyName);
         if(matcher.matches()){
             System.out.println("Mail is valid.");
         }else{
             System.out.println("Mail is not valid");
+        }
+    }
+    public void validMobileNumber() {
+
+        Pattern pattern = Pattern.compile("^[9][1]\\s[6-9][0-9]{9}$");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your Mobile number ");
+        String mobile = sc.nextLine();
+
+        Matcher matcher =pattern.matcher(mobile);
+        if(matcher.matches()){
+            System.out.println("Mobile number is valid.");
+        }else{
+            System.out.println("Mobile number is not valid");
         }
     }
     public static void main(String[] args) {
@@ -52,5 +66,6 @@ public class UserRegistration {
         ur.validFirstName();
         ur.validLastName();
         ur.validKeyName();
+        ur.validMobileNumber();
     }
 }
