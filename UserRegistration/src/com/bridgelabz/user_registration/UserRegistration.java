@@ -30,7 +30,7 @@ public class UserRegistration {
         if(matcher.matches()){
             System.out.println("Last name is valid.");
         }else{
-            System.out.println("Pattern is not valid");
+            System.out.println("Last name is not valid");
         }
     }
     public void validKeyName() {
@@ -61,11 +61,25 @@ public class UserRegistration {
             System.out.println("Mobile number is not valid");
         }
     }
+    public void validPassword(){
+        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your password ");
+        String password = sc.nextLine();
+
+        Matcher matcher =pattern.matcher(password);
+        if(matcher.matches()){
+            System.out.println("Password is valid.");
+        }else{
+            System.out.println("Password is not valid");
+        }
+    }
     public static void main(String[] args) {
         UserRegistration ur = new UserRegistration();
         ur.validFirstName();
         ur.validLastName();
         ur.validKeyName();
         ur.validMobileNumber();
+        ur.validPassword();
     }
 }
