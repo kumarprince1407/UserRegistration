@@ -66,7 +66,7 @@ public class UserRegistration {
         }
     }
     public void validPassword(){
-        Pattern pattern = Pattern.compile("^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$\n");
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your password ");
         String password = sc.nextLine();
@@ -79,11 +79,18 @@ public class UserRegistration {
         }
     }
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to user registration program.");
         UserRegistration ur = new UserRegistration();
         ur.validFirstName();
         ur.validLastName();
-        ur.validEmail();
+
+        System.out.print("Enter the number of emails you want to enter: ");
+        int size = sc.nextInt();
+        for(int i=0; i<size;i++) {
+            System.out.println("Email "+(i+1)+": " );
+            ur.validEmail();
+        }
 
         ur.validMobileNumber();
         ur.validPassword();
