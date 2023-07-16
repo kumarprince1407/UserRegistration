@@ -33,24 +33,24 @@ public class UserRegistration {
             System.out.println("Pattern is not valid");
         }
     }
-    public void validKeyName() {
+    public void validEmail() {
 
-        Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\\.[a-z]{2,}$");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your Key name ");
+        System.out.println("Enter your email address: ");
         String firstName = sc.nextLine();
 
         Matcher matcher =pattern.matcher(firstName);
         if(matcher.matches()){
-            System.out.println("Mail is valid.");
+            System.out.println("Entered email is valid.");
         }else{
-            System.out.println("Mail is not valid");
+            System.out.println("Entered email is not valid");
         }
     }
     public static void main(String[] args) {
         UserRegistration ur = new UserRegistration();
         ur.validFirstName();
         ur.validLastName();
-        ur.validKeyName();
+        ur.validEmail();
     }
 }
