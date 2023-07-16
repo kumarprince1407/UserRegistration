@@ -37,6 +37,7 @@ public class UserRegistration {
 
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\\.[a-z]{2,}$");
         Scanner sc = new Scanner(System.in);
+
         System.out.print("Enter your email address: ");
         String keyName = sc.nextLine();
 
@@ -45,6 +46,7 @@ public class UserRegistration {
             System.out.println("Entered email is valid.");
         }else{
             System.out.println("Entered email is not valid");
+
         }
     }
     public void validMobileNumber() {
@@ -59,6 +61,7 @@ public class UserRegistration {
             System.out.println("Mobile number is valid.");
         }else{
             System.out.println("Mobile number is not valid");
+
         }
     }
     public static void main(String[] args) {
@@ -67,6 +70,8 @@ public class UserRegistration {
         ur.validFirstName();
         ur.validLastName();
         ur.validEmail();
+
         ur.validMobileNumber();
+
     }
 }
