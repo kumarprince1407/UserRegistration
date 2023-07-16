@@ -30,7 +30,7 @@ public class UserRegistration {
         if(matcher.matches()){
             System.out.println("Last name is valid.");
         }else{
-            System.out.println("Pattern is not valid");
+            System.out.println("Last name is not valid");
         }
     }
     public void validEmail() {
@@ -38,7 +38,8 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\\.[a-z]{2,}$");
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter your email address: ");
+        System.out.print("Enter your email: ");
+
         String keyName = sc.nextLine();
 
         Matcher matcher =pattern.matcher(keyName);
@@ -64,6 +65,19 @@ public class UserRegistration {
 
         }
     }
+    public void validPassword(){
+        Pattern pattern = Pattern.compile("^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$\n");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your password ");
+        String password = sc.nextLine();
+
+        Matcher matcher =pattern.matcher(password);
+        if(matcher.matches()){
+            System.out.println("Password is valid.");
+        }else{
+            System.out.println("Password is not valid");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to user registration program.");
         UserRegistration ur = new UserRegistration();
@@ -72,6 +86,10 @@ public class UserRegistration {
         ur.validEmail();
 
         ur.validMobileNumber();
+        ur.validPassword();
+
+        
+
 
     }
 }
