@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
     public void validFirstName() {
-        System.out.println("Welcome to user registration program.");
+
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your First name ");
+        System.out.print("Enter your First name: ");
         String firstName = sc.nextLine();
 
         Matcher matcher =pattern.matcher(firstName);
@@ -20,10 +20,10 @@ public class UserRegistration {
         }
     }
     public void validLastName() {
-        System.out.println("Welcome to user registration program.");
+
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your Last name ");
+        System.out.print("Enter your Last name: ");
         String lastName = sc.nextLine();
 
         Matcher matcher =pattern.matcher(lastName);
@@ -33,25 +33,25 @@ public class UserRegistration {
             System.out.println("Pattern is not valid");
         }
     }
-    public void validKeyName() {
+    public void validEmail() {
 
-        Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\\.[a-z]{2,}$");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your Key name ");
+        System.out.print("Enter your email address: ");
         String keyName = sc.nextLine();
 
         Matcher matcher =pattern.matcher(keyName);
         if(matcher.matches()){
-            System.out.println("Mail is valid.");
+            System.out.println("Entered email is valid.");
         }else{
-            System.out.println("Mail is not valid");
+            System.out.println("Entered email is not valid");
         }
     }
     public void validMobileNumber() {
 
         Pattern pattern = Pattern.compile("^[9][1]\\s[6-9][0-9]{9}$");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter your Mobile number ");
+        System.out.print("Enter your Mobile number: ");
         String mobile = sc.nextLine();
 
         Matcher matcher =pattern.matcher(mobile);
@@ -62,10 +62,11 @@ public class UserRegistration {
         }
     }
     public static void main(String[] args) {
+        System.out.println("Welcome to user registration program.");
         UserRegistration ur = new UserRegistration();
         ur.validFirstName();
         ur.validLastName();
-        ur.validKeyName();
+        ur.validEmail();
         ur.validMobileNumber();
     }
 }
